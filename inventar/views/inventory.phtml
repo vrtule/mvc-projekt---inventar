@@ -1,0 +1,46 @@
+<h2 class="text-center mb-4">Seznam produktů</h2>
+<div class="mb-1 fs-5">Nalezeno <?= $count ?> položek.</div>
+<div class="table-responsive-md mb-5">
+    <table id="myTable" class="table table-bordered table-hover table-striped text-center">
+		<thead class="table-dark">
+			<tr>
+				<th scope="col">ID</th>        
+				<th scope="col">Název</th>
+				<th scope="col">Kategorie</th>
+				<th scope="col">Cena s DPH</th>
+				<?php if ($admin) : ?>
+					<th scope="col">Možnosti</th>
+				<?php endif ?>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($inventory as $detail) : ?>
+				<tr>
+					<td>
+						<?= $detail['zbozi_id'] ?>
+					</td>
+					<td>
+						<a href="detail/<?= $detail['zbozi_id'] ?>"><?= $detail['nazev'] ?></a>
+						
+					</td>
+					<td>
+						<?= $detail['kategorie'] ?>
+					</td>
+					<td>
+						<?= number_format($detail['cena_s_DPH'], 0, '.', ' ') . " kč" ?>
+					</td>
+					<?php if ($admin) : ?>
+						<td>
+							<a href="detail/<?= $detail['zbozi_id'] ?>" class="btn btn-info">Editovat</a>
+							<a href="inventar/<?= $detail['zbozi_id'] ?>/odstranit" value="Delete" class="btn btn-danger" onClick="return confirm('Opravdu chcete odstranit tuto položku?')">Odstranit</a>
+						</td>
+					<?php endif ?>
+				</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+<?php if ($admin) : ?>
+	<a href="PridatPolozku" class="btn btn-primary float-start">Přidat položku</a>
+<?php endif ?>
+</div>
+

@@ -1,0 +1,14 @@
+<div class="text-center">
+	<h3>Jste přihlášeni jako:	<?= $uzivatelske_jmeno ?></h3>
+	<p class="my-3" style="font-size: 1.7rem">Typ oprávnění: 
+	<?php if ($admin) : ?>
+		Admin</p>
+	<?php else : ?>
+		Běžný uživatel (nemáte oprávnění editovat a mazat položky)</p>
+	<?php endif ?>
+	<div class="mt-5">
+		<button type="button" class="btn btn-danger btn-lg">
+			<a href="ucet/odhlasit" id="odhlasitButton" style="text-decoration: none; color: white;">Odhlásit</a>
+		</button>
+	</div>
+</div>

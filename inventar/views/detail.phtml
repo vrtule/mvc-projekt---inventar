@@ -1,0 +1,39 @@
+<div class="text-center">
+<h2>Detail produktu:	<?= $nazev ?></h2>
+</div>
+<div class="row justify-content-center my-3">
+    <div class="col-lg-6">
+		<form method="post">
+		<div class="form-group mb-2">
+				<label for="id"></label>
+				<input type="hidden" class="form-control" name="zbozi_id" value=<?= $zbozi_id ?>>
+			</div>
+			<div class="form-group mb-2">
+				<label for="nazevInput">Název</label>
+				<input type="text" class="form-control" id="nazevInput" name="nazev" value="<?= $nazev ?>">
+			</div>
+			<div class="form-group mb-2">
+				<label for="kategorieInput">Kategorie</label>
+				<input type="text" class="form-control" id="kategorieInput" name="kategorie" value="<?= $kategorie ?>">
+			</div>
+			<div class="form-group mb-2">
+				<label for="popisInput">Popis</label>
+				<textarea class="form-control" id="popisInput" name="popis" rows="7"><?= $popis?></textarea>
+			</div>
+			<div class="form-group mb-2">
+				<label for="sklademInput">Skladem</label>
+				<input type="text" class="form-control" id="sklademInput" name="mnozstvi_skladem" value="<?= $mnozstvi_skladem ?>">
+			</div>
+			<div class="form-group mb-4">
+				<label for="cenaInput">Cena</label>
+				<input type="text" class="form-control" id="cenaInput" name="cena_s_DPH" value="<?= $cena_s_DPH ?>">
+			</div>
+			<?php if ($admin) : ?>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary">Uložit položku</button>
+				</div>
+			<?php endif ?>
+			
+		</form>
+	</div>
+</div>
